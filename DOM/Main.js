@@ -2493,7 +2493,7 @@ displayProducts('electonics-container', 160, 180);
 
 // Function to filter products based on search input
 function searchProducts() {
-  const searchInput = document.getElementById('search-input').value.toLowerCase();
+  const searchInput = document.querySelector('.search-container input').value.toLowerCase();
   const filteredProducts = ecommerceProducts.filter(product => {
     return product.name.toLowerCase().includes(searchInput) ||
            product.category.toLowerCase().includes(searchInput);
@@ -2539,8 +2539,6 @@ function displayFilteredProducts(filteredProducts, container) {
   });
 }
 
-// Initial display of products
-// displayProducts('product-container', 0, 20);
-
 // Add input event listener for the search input field
-document.getElementById('search-input').addEventListener('input', searchProducts);
+document.querySelector('.search-container input').addEventListener('input', searchProducts);
+

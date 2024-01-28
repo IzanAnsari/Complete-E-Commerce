@@ -1,3 +1,16 @@
+html, body {
+    margin: 0 ;
+    padding: 0 ;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+*, *::before, *::after {
+	box-sizing: inherit;
+}
+
 body {
 	color: #000000;
 	background-color: #fff;
@@ -34,6 +47,17 @@ pre {
 }
 a{
 	text-decoration: none;
+	/* cursor: pointer; */
+}
+
+
+.gradient {
+  background: linear-gradient(
+	90deg,
+	rgba(255, 23, 228, 1) 0%,
+	rgba(134, 251, 251, 1) 100%
+  );
+  height: 2px;
 }
 
 code {
@@ -45,7 +69,8 @@ code {
 	display: flex;
 	height: 390px;
 	overflow-x: scroll;
-	width: 100%;
+	width: 99%;
+	/* margin-left: -10px; */
 	position: absolute;
 	margin-top: -320px;
 	/* justify-content: space-around; */
@@ -75,7 +100,7 @@ code {
 	display: flex;
 	height: 390px;
 	overflow-x: scroll;
-	width: 100%;
+	width: 99%;
 	margin-top: 30px;
 	/* justify-content: space-around; */
 	scrollbar-width: thin;
@@ -94,7 +119,7 @@ code {
 	display: flex;
 	height: 350px;
 	overflow-x: scroll;
-	width: 100%;
+	width: 99%;
 	margin-top: 30px;
 	/* justify-content: space-around; */
 	scrollbar-width: thin;
@@ -111,7 +136,7 @@ code {
 	display: flex;
 	height: 350px;
 	overflow-x: scroll;
-	width: 100%;
+	width: 99%;
 	margin-top: 30px;
 	/* justify-content: space-around; */
 	scrollbar-width: thin;
@@ -128,7 +153,7 @@ code {
 	display: flex;
 	height: 380px;
 	overflow-x: scroll;
-	width: 100%;
+	width: 99%;
 	margin-top: 30px;
 	/* justify-content: space-around; */
 	scrollbar-width: thin;
@@ -145,7 +170,7 @@ code {
 	display: flex;
 	height: 380px;
 	overflow-x: scroll;
-	width: 100%;
+	width: 99%;
 	margin-top: 30px;
 	/* justify-content: space-around; */
 	scrollbar-width: thin;
@@ -162,7 +187,7 @@ code {
 	display: flex;
 	height: 380px;
 	overflow-x: scroll;
-	width: 100%;
+	width: 99%;
 	margin-top: 30px;
 	/* justify-content: space-around; */
 	scrollbar-width: thin;
@@ -179,7 +204,7 @@ code {
 	display: flex;
 	height: 380px;
 	overflow-x: scroll;
-	width: 100%;
+	width: 99%;
 	margin-top: 30px;
 	/* justify-content: space-around; */
 	scrollbar-width: thin;
@@ -196,7 +221,7 @@ code {
 	display: flex;
 	height: 380px;
 	overflow-x: scroll;
-	width: 100%;
+	width: 99%;
 	margin-top: 30px;
 	/* justify-content: space-around; */
 	scrollbar-width: thin;
@@ -282,70 +307,88 @@ p {
 }
 
 
-/* search bar */
+/* Search Bar Styles */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-.search-input-container {
-	position: relative;
-	/* border: 1px solid black; */
-	border-style: outset;
-	height: 46px;
-	max-width: 380px;
-	/* width: 100%; */
-	background: #ffffff;
-	margin: 0 20px;
-	/* margin-left: -50px; */
-	border-radius: 8px;
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+.search-container {
+  position: relative;
+  border: 1px solid black;
+  height: 36px;
+  max-width: 900px;
+  width: 80%;
+  background: #fff;
+  margin-top: -10px;
+  margin-right: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.search-input-container .search-icon,
-.search-input-container .search-button {
-	position: absolute;
-	top: 30%;
-	transform: translateY(-50%);
+.search-container i,
+.search-container .search-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.search-input-container .search-icon {
-	/* left: 10px; */
-	font-size: 10px;
-	margin-top: 10px;
-	color: #ffffff;
+.search-container i {
+  left: 20px;
+  font-size: 20px;
+  color: #707070;
 }
 
-.search-input-container input {
-	height: 100%;
-	width: 100%;
-	outline: none;
-	font-size: 18px;
-	font-weight: 400;
-	border: none;
-	padding: 0 155px 0 65px;
-	background-color: transparent;
+.search-container input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 18px;
+  font-weight: 400;
+  border: none;
+  padding: 0 155px 0 65px;
+  background-color: transparent;
 }
 
-.search-input-container .search-button {
-	right: 10px;
-	margin-top: 10px;
-	font-size: 16px;
-	font-weight: 400;
-	color: #fff;
-	border: none;
-	padding: 8px 25px;
-	border-radius: 6px;
-	background-color: #4070f4;
-	cursor: pointer;
+.search-container .search-button {
+  right: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  height: 26px;
+  color: #fff;
+  border: none;
+  padding: 1px 30px;
+  border-radius: 6px;
+  background-color: #4070f4;
+  cursor: pointer;
 }
 
-.search-input-container .search-button:active {
-	transform: translateY(-50%) scale(0.98);
+.search-container .search-button:active {
+  transform: translateY(-50%) scale(0.98);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 500px) {
+  .search-container {
+    height: 66px;
+    margin: 0 8px;
+  }
+  .search-container i {
+    left: 12px;
+    font-size: 25px;
+  }
+  .search-container input {
+    padding: 0 112px 0 50px;
+  }
+  .search-container .search-button {
+    right: 12px;
+    font-size: 14px;
+    padding: 8px 18px;
+  }
 }
 
 
 
 
 
-footer {
+  footer {
 	/* position: fixed; */
 	background: #e4e4e4;
 	width: 100%;
@@ -613,102 +656,6 @@ footer .bottom-details .bottom_text {
 		width: 100%;
 	}
 }
-
-/* navabar css */
-.list {
-	list-style: none;
-	display: flex;
-	align-items: center;
-	font-size: 16px;
-	gap: 23px;
-	overflow-x: auto;
-	/* Use 'auto' to show scrollbar only when needed */
-	white-space: nowrap;
-	/* Prevent wrapping to next line */
-	padding: 1px;
-	margin-left: 30px;
-	/* Add some padding for better visual appearance */
-}
-
-.list::-webkit-scrollbar {
-	height: 2px;
-	/* Set the height of the scrollbar */
-}
-
-.list::-webkit-scrollbar-thumb {
-	background-color: #ffffff;
-	/* Color of the scrollbar thumb */
-	border-radius: 3px;
-	/* Border radius of the thumb */
-}
-
-.list::-webkit-scrollbar-track {
-	background-color: #ffffff;
-	/* Color of the scrollbar track */
-}
-
-
-.link {
-	position: relative;
-	display: inline-block;
-	text-decoration: none;
-	color: rgb(0, 0, 0);
-	font-weight: 700;
-}
-
-.link::before,
-.link::after {
-	content: '';
-	position: absolute;
-	left: 0;
-	width: 100%;
-	height: 2px;
-	background-color: #289591;
-	transform: scaleX(0);
-	transition: transform 0.25s;
-}
-
-.link::before {
-	top: -3px;
-	transform-origin: left;
-}
-
-.link::after {
-	bottom: -3px;
-	transform-origin: right;
-}
-
-.link:hover::before,
-.link:hover::after,
-.active::before,
-.active::after {
-	transform: scaleX(1);
-}
-
-.name {
-	position: absolute;
-	top: 70%;
-	font-size: 11px;
-	color: #00fffc;
-	font-weight: 800;
-}
-
-img {
-	height: 250px;
-	width: 240px;
-}
-
-.add {
-	height: 260px;
-	width: 200px;
-	border: 1px solid rgb(0, 0, 0);
-	border-radius: 10px;
-	margin-top: 60px;
-	/* margin-bottom: -130px; */
-	padding-left: 15px;
-	margin-left: -20px;
-}
-
 /* buttons */
 
 /* Style for the "Add to Cart" button */
@@ -875,6 +822,7 @@ h1{
 	margin: 1.6rem 0 1rem;
 	text-align: center;
 }
+nav
 
 .details>h4+h5 {
 	background: #ff0000;
@@ -980,7 +928,7 @@ nav {
 	/* position:sticky ;
 	top: 0; */
 	background-color: #ffffff;
-	height: 75px;
+	height: 50px;
     /* font-size: 10%; */
      padding: 1%;
 	 /* Set padding to 0 to remove space from top and bottom */
@@ -1043,6 +991,18 @@ nav {
 	}
   }
   
-
+  .addToCartBtn,
+  .buyNowBtn {
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: 10px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
 
   
