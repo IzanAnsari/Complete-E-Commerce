@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Order - Track and Trace</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+    <style>
+        body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* color: #e62525; Default text color */
+}
+
+h1 {
+    text-align: center;
+    color: #17696a; /* Heading color */
+}
+
+a {
+    text-decoration: none;
+    color: #0b0b0b; /* Link color */
+}
+
+#buy-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.cart-item {
+    /* background-color: #ffffff; */
+    /* border: 1px solid #ddd; */
+    border-radius: 10px;
+    margin: 15px;
+    text-align: center;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart-item:hover {
+    transform: scale(1.05);
+}
+
+.cart-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+#order-details-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+#order-details,
+#tracking-info {
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    width: 45%;
+    margin: 0 10px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+button {
+    background-color: #17696a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 990px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #6db1b2;
+}
+
+.thr {
+    text-decoration: line-through;
+    color: #cc0000; /* Strikethrough color */
+}
+h3{
+    color: teal;
+}
+p{
+    color:#17696a;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <h1>Your Order Details</h1>
+
+    <button id="clear-all">Clear All</button>
+    <div id="buy-items"></div>
+
+    <div id="order-details-container">
+        <div id="order-details">
+            <!-- Display Order Details Here -->
+        </div>
+
+        <div id="tracking-info">
+            <!-- Display Tracking Information Here -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let buyCart = JSON.parse(localStorage.getItem("buy")) || [];
+            const buyItemsElement = document.getElementById("buy-items");
+            const clearAllButton = document.getElementById("clear-all");
+            const orderDetailsElement = document.getElementById("order-details");
+            const trackingInfoElement = document.getElementById("tracking-info");
+
+            function displayCart(cart, element) {
+                element.innerHTML = "";
+                cart.forEach(function (item) {
+                    const cartItemDiv = document.createElement("div");
+                    cartItemDiv.classList.add('cart-item');
+
+                    const imgContainer = document.createElement('div');
+                    imgContainer.innerHTML = `
+                    <a href="../Views/product-details.html?id=${item.id}">
+                    <img src="${item.imageUrl}" alt="${item.name}" style="width: 200px; height: 200px;"></a>`;
+                    cartItemDiv.appendChild(imgContainer);
+
+                    const cartItemContent = document.createElement('div');
+                    cartItemContent.classList.add('cart-item-content');
+                    cartItemContent.innerHTML = `
+                    <a href="../Views/product-details.html?id=${item.id}">
+                        <p>${item.name} - $${item.price}</p>
+                        <h2>${item.category}</h2>
+                        <h3>${item.description}</h3>
+                        <h4>Original Price: ₹<span class="thr">${item.ogprice}</span></h4>
+                        <p>Total: ₹<span class="total">${item.price}</span></p></a>
+                    `;
+
+                    cartItemDiv.appendChild(cartItemContent);
+                    element.appendChild(cartItemDiv);
+
+                    orderDetailsElement.innerHTML = `
+                <p>Order Number: 123456</p>
+                <p>Order Date: ${new Date().toLocaleDateString()}</p>
+                <p>Delivery Address: Your Address, City, Country</p>
+            `;
+
+                    trackingInfoElement.innerHTML = `
+                <p>Tracking Number: ABC123XYZ</p>
+                <p>Status: Shipped</p>
+                <p>Estimated Delivery: ${new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString()}</p>
+            `;
+                });
+            }
+
+            function clearAllItems() {
+                buyCart = [];
+                localStorage.setItem('buy', JSON.stringify(buyCart));
+                displayCart(buyCart, buyItemsElement);
+                // Clear order details and tracking information
+                orderDetailsElement.innerHTML = "";
+                trackingInfoElement.innerHTML = "";
+            }
+
+            clearAllButton.addEventListener("click", function () {
+                clearAllItems();
+            });
+
+            displayCart(buyCart, buyItemsElement);
+
+            // Simulate order details and tracking information (replace with actual data)
+
+        });
+    </script>
+
+</body>
+
+</html>
