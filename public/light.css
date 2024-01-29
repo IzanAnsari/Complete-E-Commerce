@@ -390,7 +390,7 @@ p {
 
   footer {
 	/* position: fixed; */
-	background: #e4e4e4;
+	background: #ffffff;
 	width: 100%;
 	bottom: 0;
 	left: 0;
@@ -565,7 +565,7 @@ footer .content .link-boxes .box {
 
 footer .bottom-details {
 	width: 100%;
-	background: #cdcdcd;
+	background: #ececec;
 }
 
 footer .bottom-details .bottom_text {
@@ -925,17 +925,15 @@ nav
 }
 
 nav {
-	/* position:sticky ;
-	top: 0; */
-	background-color: #ffffff;
-	height: 50px;
-    /* font-size: 10%; */
-     padding: 1%;
-	 /* Set padding to 0 to remove space from top and bottom */
-    margin: 0; /* Set margin to 0 to remove space from top and bottom */
-    padding-top: 1px;
-    padding-bottom:-1px;
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    height: 65px;
+    padding: 10px; /* Adjust padding as needed */
+    margin: 0;
+    z-index: 100; /* Set a higher z-index to ensure it appears on top */
 }
+
   nav ul {
 	margin: 0;
 	padding: 0;

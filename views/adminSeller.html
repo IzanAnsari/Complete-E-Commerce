@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Page</title>
+    <style>
+        #newProduct{
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 20px;
+            width: 60%;
+            margin: 2% auto;
+            background-color: #ffffff;
+        }
+        button{
+            background-color: #17696a;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #919ea6;
+        }
+        
+        label{
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input {
+            /* width: 100%; */
+            padding: 8px;
+            margin-top: 2px;
+            
+            margin-bottom: 1px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .red {
+	color: #e44d26;
+	font-size: 23px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.black {
+	color: #777;
+}
+
+
+    </style>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+<body>
+    
+    <h5 class="red" style="margin-top: 2px;"><i class="fa fa-shopping-cart" aria-hidden="true" style="margin-top: 20px;"></i> Stark<span class="black"> Mart
+        24/7
+      </span></h5>
+      <h2 style="color: #17696a; margin-left: 35%;" >Merchant Administration Panel</h2>
+    <a href="./product.html"><button style="margin-left: 85%;">See the Product</button></a>
+    <form id="newProduct">
+        <label for="id">Enter ID:</label>
+        <input type="number" id="id" required>
+
+        <label for="name" style="margin-left: 70px;">Product Name:</label>
+        <input type="text" id="name" required><br><br>
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" required>
+
+        <label for="ogprice" style="margin-left: 95px;">Original Price:</label>
+        <input type="number" id="ogprice" required><br><br>
+
+        <label for="category">Offer in % :</label>
+        <input type="text" id="category" required>
+
+        <label for="description" style="margin-left: 55px;">Description:</label>
+        <input type="text" id="description" required style="padding-bottom: 55px; padding-left: 30px;"><br><br>
+
+        <label for="imageUrl">Image Url:</label>
+        <input type="text" id="imageUrl" required><br><br>
+
+        <label for="image1Url">Image 1 Url:</label>
+        <input type="text" id="image1Url" required>
+
+        <label for="image2Url">Image 2 Url:</label>
+        <input type="text" id="image2Url" required><br><br>
+
+        <label for="image3Url">Image 3 Url:</label>
+        <input type="text" id="image3Url" required>
+
+        <label for="image4Url">Image 4 Url:</label>
+        <input type="text" id="image4Url" required><br><br>
+
+        <label for="sold">Sold:</label>
+        <input type="checkbox" id="sold"><br><br>
+
+        <button type="button" id="add" onclick="addProduct()">Add Product</button>
+    </form>
+
+</body>
+</html>
+
+    <script>
+        function Product(id, name, price, ogprice, category, description, imageUrl, image1Url, image2Url, image3Url, image4Url, sold) {
+            this.id = id;
+            this.name = name;
+            this.price = price;
+            this.ogprice = ogprice;
+            this.category = category;
+            this.description = description;
+            this.imageUrl = imageUrl;
+            this.image1Url = image1Url;
+            this.image2Url = image2Url;
+            this.image3Url = image3Url;
+            this.image4Url = image4Url;
+            this.sold = sold || false;
+        }
+
+        function addProduct() {
+            let products = JSON.parse(localStorage.getItem('products01')) || [];
+            let product = new Product(
+                document.getElementById('id').value,
+                document.getElementById('name').value,
+                document.getElementById('price').value,
+                document.getElementById('ogprice').value,
+                document.getElementById('category').value,
+                document.getElementById('description').value,
+                document.getElementById('imageUrl').value,
+                document.getElementById('image1Url').value,
+                document.getElementById('image2Url').value,
+                document.getElementById('image3Url').value,
+                document.getElementById('image4Url').value,
+                document.getElementById('sold').checked
+            );
+
+            products.push(product);
+
+            localStorage.setItem('products01', JSON.stringify(products));
+
+            document.getElementById('newProduct').reset();
+        }
+    </script>
