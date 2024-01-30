@@ -1278,6 +1278,6 @@ nav .navbar .links li .sub-menu li{
 		display: none;
 	}
 	#mode-toggler-search{
-		display: none;
+		/* display: none; */
 	}
 }
