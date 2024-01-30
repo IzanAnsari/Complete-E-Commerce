@@ -2492,8 +2492,17 @@ displayProducts('electonics-container', 160, 180);
 
 
 // Function to filter products based on search input
+// Assuming your HTML structure for search input is as follows:
+// <div class="search-box">
+//     <i class='bx bx-search'></i>
+//     <div class="input-box">
+//         <input type="text" placeholder="Search..." id="searchInput">
+//     </div>
+// </div>
+
+// Function to filter products based on search input
 function searchProducts() {
-  const searchInput = document.querySelector('.search-container input').value.toLowerCase();
+  const searchInput = document.getElementById('searchInput').value.toLowerCase();
   const filteredProducts = ecommerceProducts.filter(product => {
     return product.name.toLowerCase().includes(searchInput) ||
            product.category.toLowerCase().includes(searchInput);
@@ -2539,8 +2548,11 @@ function displayFilteredProducts(filteredProducts, container) {
   });
 }
 
-// Add input event listener for the search input field
-document.querySelector('.search-container input').addEventListener('input', searchProducts);
+// Other functions and code (assuming they are defined elsewhere in your script)
+
+// Example of how to trigger the search on an event, for example, on the 'input' event:
+document.getElementById('searchInput').addEventListener('input', searchProducts);
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
