@@ -133,7 +133,7 @@ code {
 	/* IE and Edge */
 }
 
-#access-container, #new-container{
+#access-container{
 	display: flex;
 	height: 350px;
 	overflow-x: scroll;
