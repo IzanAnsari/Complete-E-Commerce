@@ -50,7 +50,7 @@
         });
 
         function displayProducts() {
-    let products = JSON.parse(localStorage.getItem('products01')) || [];
+    let products = JSON.parse(localStorage.getItem('products')) || [];
     let filteredProducts = products.filter(product => product.id >= 221);
 
     let productContainer = document.getElementById('productContainer');
@@ -100,20 +100,20 @@
 }
 
         function removeProduct(productId) {
-            let products = JSON.parse(localStorage.getItem('products01')) || [];
+            let products = JSON.parse(localStorage.getItem('products')) || [];
             let updatedProducts = products.filter(product => product.id !== productId);
-            localStorage.setItem('products01', JSON.stringify(updatedProducts));
+            localStorage.setItem('products', JSON.stringify(updatedProducts));
             displayProducts();
         }
         function toggleSold(productId) {
-            let products = JSON.parse(localStorage.getItem('products01')) || [];
+            let products = JSON.parse(localStorage.getItem('products')) || [];
             let updatedProducts = products.map(product => {
                 if (product.id === productId) {
                     product.sold = !product.sold;
                 }
                 return product;
             });
-            localStorage.setItem('products01', JSON.stringify(updatedProducts));
+            localStorage.setItem('products', JSON.stringify(updatedProducts));
             displayProducts();
         }
        

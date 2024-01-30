@@ -94,8 +94,8 @@
         <label for="image4Url" style="margin-left: 43px;">Image 4 Url:</label>
         <input type="text" id="image4Url" required><br><br>
 
-        <label for="sold">Sold:</label>
-        <input type="checkbox" id="sold"><br><br>
+        <!-- <label for="sold">Sold:</label>
+        <input type="checkbox" id="sold"><br><br> -->
 
         <button type="button" id="add" onclick="addProduct()">Add Product</button>
     </form>
@@ -104,8 +104,10 @@
 </html>
 
 
+
 <script>
-    function Product(name, price, ogprice, category, description, imageUrl, image1Url, image2Url, image3Url, image4Url, sold) {
+
+function Product(name, price, ogprice, category, description, imageUrl, image1Url, image2Url, image3Url, image4Url, sold) {
         this.id = generateRandomId();
         this.name = name;
         this.price = price;
@@ -117,85 +119,58 @@
         this.image2Url = image2Url;
         this.image3Url = image3Url;
         this.image4Url = image4Url;
-        this.sold = sold || false;
-
+        // this.sold = sold || false;
+        
         function generateRandomId() {
             // Generate a random number between 1 and 1000 (adjust the range as needed)
             return Math.floor(Math.random() * 10000) + 1;
         }
     }
-
+    
     function addProduct() {
-        let ecommerceProducts = JSON.parse(localStorage.getItem('products01')) || [];
-        let product = new Product(
-            document.getElementById('name').value,
-            document.getElementById('price').value,
-            document.getElementById('ogprice').value,
-            document.getElementById('category').value,
-            document.getElementById('description').value,
-            document.getElementById('imageUrl').value,
-            document.getElementById('image1Url').value,
-            document.getElementById('image2Url').value,
-            document.getElementById('image3Url').value,
-            document.getElementById('image4Url').value,
-            document.getElementById('sold').checked
-        );
+    // Get form input values
+    let name = document.getElementById('name').value;
+    let price = parseFloat(document.getElementById('price').value);
+    let ogprice = parseFloat(document.getElementById('ogprice').value);
+    let category = document.getElementById('category').value;
+    let description = document.getElementById('description').value;
+    let imageUrl = document.getElementById('imageUrl').value;
+    let image1Url = document.getElementById('image1Url').value;
+    let image2Url = document.getElementById('image2Url').value;
+    let image3Url = document.getElementById('image3Url').value;
+    let image4Url = document.getElementById('image4Url').value;
 
-        console.log('Before Deletion:', ecommerceProducts);
-ecommerceProducts.push(product);
-console.log('After Adding Product:', ecommerceProducts);
-
-
-        localStorage.setItem('products01', JSON.stringify(ecommerceProducts));
-
-        document.getElementById('newProduct').reset();
+    // Validate input values (add additional validation as needed)
+    if (!name || isNaN(price) || isNaN(ogprice) || !category || !imageUrl) {
+        alert("Please fill in all required fields.");
+        return;
     }
+
+    console.log("Creating new product instance...");
+
+    // Create new Product instance
+    let product = new Product(name, price, ogprice, category, description, imageUrl, image1Url, image2Url, image3Url, image4Url);
+
+    console.log("New product instance created:", product);
+
+    // Get existing products from local storage
+    let ecommerceProducts = JSON.parse(localStorage.getItem('products')) || [];
+
+    console.log("Before Adding Product:", ecommerceProducts);
+
+    // Add the new product to the array
+    ecommerceProducts.push(product);
+
+    console.log("After Adding Product:", ecommerceProducts);
+
+    // Update local storage with the modified array
+    localStorage.setItem('products', JSON.stringify(ecommerceProducts));
+
+    console.log("Product added successfully!");
+
+    // Reset the form
+    document.getElementById('newProduct').reset();
+}
+
 </script>
 
-<!-- <script>
-    function Product(name, price, ogprice, category, description, imageUrl, image1Url, image2Url, image3Url, image4Url, sold) {
-        this.id = generateRandomId();
-        this.name = name;
-        this.price = price;
-        this.ogprice = ogprice;
-        this.category = category;
-        this.description = description;
-        this.imageUrl = imageUrl;
-        this.image1Url = image1Url;
-        this.image2Url = image2Url;
-        this.image3Url = image3Url;
-        this.image4Url = image4Url;
-        this.sold = sold || false;
-
-        function generateRandomId() {
-            // Generate a random number between 1 and 1000 (adjust the range as needed)
-            return Math.floor(Math.random() * 10000) + 1;
-        }
-    }
-
-    function addProduct() {
-        let ecommerceProducts = JSON.parse(localStorage.getItem('products')) || [];
-        let product = new Product(
-            document.getElementById('name').value,
-            document.getElementById('price').value,
-            document.getElementById('ogprice').value,
-            document.getElementById('category').value,
-            document.getElementById('description').value,
-            document.getElementById('imageUrl').value,
-            document.getElementById('image1Url').value,
-            document.getElementById('image2Url').value,
-            document.getElementById('image3Url').value,
-            document.getElementById('image4Url').value,
-            document.getElementById('sold').checked
-        );
-
-        console.log('Before Deletion:', ecommerceProducts);
-ecommerceProducts.push(product);
-console.log('After Adding Product:', ecommerceProducts);
-
-
-        localStorage.setItem('products', JSON.stringify(ecommerceProducts));
-
-        document.getElementById('newProduct').reset();
-    }
-</script> -->

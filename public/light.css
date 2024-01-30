@@ -152,6 +152,7 @@ code {
 
 #shoes-container, #new-container {
 	display: flex;
+	/* border: 1px solid red; */
 	height: 380px;
 	overflow-x: scroll;
 	width: 99%;
@@ -291,7 +292,7 @@ p {
 }
 
 .red {
-	color: #ed2f00;
+	color: red;
 	font-size: 33px;
 	margin-top: 15px;
 	margin-bottom: 15px;
@@ -1247,7 +1248,7 @@ nav .navbar .links li .sub-menu li{
     transition: background-color 0.3s;
   }
   .down{
-	margin-top: 120px;
+	margin-top: 160px;
   }
   .tag{
 	margin-top: -90px;

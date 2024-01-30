@@ -1,3 +1,4 @@
+ 
  const ecommerceProducts = [
   {
     id: 1,
@@ -2363,9 +2364,50 @@
       image3Url: 'https://m.media-amazon.com/images/I/61T4v19zB2L._SX679_.jpg',
       image4Url: 'https://m.media-amazon.com/images/I/61T4v19zB2L._SX679_.jpg',
     },
-    ];
+    {
+      id: 358,
+      name: 'SmartHomeSecurityCamera',
+      price: 1959.99,
+      ogprice: 2989.99,
+      category: '33% Off',
+      description: 'Wireless Smart Home Security Camera with Motion Detection and Night Vision.',
+      imageUrl: 'https://m.media-amazon.com/images/I/31Nk80-hUUL._SX300_SY300_QL70_FMwebp_.jpg',
+      image1Url: 'https://m.media-amazon.com/images/I/31Nk80-hUUL._SX300_SY300_QL70_FMwebp_.jpg',
+      image2Url: 'https://m.media-amazon.com/images/I/51Cy-wU1kML._SX679_.jpg',
+      image3Url: 'https://m.media-amazon.com/images/I/61Iajx2gXhL._SX679_.jpg',
+      image4Url: 'https://m.media-amazon.com/images/I/61COGks9gbL._SX679_.jpg1  ',
+    },
+    {
+      id: 339,
+      name: 'PortablePowerBank',
+      price: 924.99,
+      ogprice: 1339.99,
+      category: '38% Off',
+      description: 'Compact Portable Power Bank for Charging Devices on the Go.',
+      imageUrl: 'https://m.media-amazon.com/images/I/71OcPYwiZQL._SX679_.jpg',
+      image1Url: 'https://m.media-amazon.com/images/I/71OcPYwiZQL._SX679_.jpg',
+      image2Url: 'https://m.media-amazon.com/images/I/71XLCSIqDIL._SX679_.jpg',
+      image3Url: 'https://m.media-amazon.com/images/I/71t1HtfIPAL._SX679_.jpg',
+      image4Url: 'https://m.media-amazon.com/images/I/81SBnMJYAZL._SX679_.jpg',
+    },
+    {
+      id: 340,
+      name: 'WirelessGamingMouse',
+      price: 344.99,
+      ogprice: 669.99,
+      category: '36% Off',
+      description: 'Wireless Gaming Mouse with Programmable Buttons and RGB Lighting.',
+      imageUrl: 'https://m.media-amazon.com/images/I/81PgM6Vu14L._SX679_.jpg',
+      image1Url: 'https://m.media-amazon.com/images/I/81PgM6Vu14L._SX679_.jpg',
+      image2Url: 'https://m.media-amazon.com/images/I/61T4v19zB2L._SX679_.jpg',
+      image3Url: 'https://m.media-amazon.com/images/I/61T4v19zB2L._SX679_.jpg',
+      image4Url: 'https://m.media-amazon.com/images/I/61T4v19zB2L._SX679_.jpg',
+    },
+  ];
+  if(!localStorage.getItem("products")){
+    localStorage.setItem("products", JSON.stringify(ecommerceProducts)) 
+    }
 
-    localStorage.setItem("products", JSON.stringify(ecommerceProducts))
 
 
     // Function to display products on the webpage
@@ -2375,6 +2417,35 @@
 function getButtonText(productId) {
   var addedProducts = JSON.parse(localStorage.getItem("addedProducts")) || [];
   return addedProducts.includes(productId) ? "Added" : "Add to Cart";
+}
+
+
+
+// Function to handle the "Buy Now" button click
+function buyNow(event) {
+  var productId = event.currentTarget.dataset.productId;
+
+  var buyCart = JSON.parse(localStorage.getItem("buy")) || [];
+  var foundObject = buyCart.find(function (elem) {
+    return elem.id == productId;
+  });
+
+  if (foundObject !== undefined) {
+    console.log("Product is already in the buy cart.");
+    return;
+  }
+
+  var selectedProduct = products.find(function (product) {
+    return product.id == productId;
+  });
+
+  if (selectedProduct) {
+    buyCart.push(selectedProduct);
+    localStorage.setItem("buy", JSON.stringify(buyCart));
+    console.log("Product added to the buy cart:", selectedProduct);
+  } else {
+    console.log("Product not found.");
+  }
 }
 
 // Function to handle the "Add to Cart" button click
@@ -2414,32 +2485,7 @@ function addToCart(event) {
   }
 }
 
-// Function to handle the "Buy Now" button click
-function buyNow(event) {
-  var productId = event.currentTarget.dataset.productId;
 
-  var buyCart = JSON.parse(localStorage.getItem("buy")) || [];
-  var foundObject = buyCart.find(function (elem) {
-    return elem.id == productId;
-  });
-
-  if (foundObject !== undefined) {
-    console.log("Product is already in the buy cart.");
-    return;
-  }
-
-  var selectedProduct = products.find(function (product) {
-    return product.id == productId;
-  });
-
-  if (selectedProduct) {
-    buyCart.push(selectedProduct);
-    localStorage.setItem("buy", JSON.stringify(buyCart));
-    console.log("Product added to the buy cart:", selectedProduct);
-  } else {
-    console.log("Product not found.");
-  }
-}
 const products = JSON.parse(localStorage.getItem('products'));
 
 
@@ -2488,17 +2534,13 @@ displayProducts('furniture-container', 100, 120);
 displayProducts('mobile-container', 120, 140);
 displayProducts('home-container', 140, 160);
 displayProducts('electonics-container', 160, 180);
-// displayProducts('new-container', 180, 200); // Start from index 181
+
+// Display products in the "new-container" after the 180th product
+// displayProducts('new-container', 180, products.length);
+// console.log(products.slice(180)); // Log products beyond index 180
 
 
-// Function to filter products based on search input
-// Assuming your HTML structure for search input is as follows:
-// <div class="search-box">
-//     <i class='bx bx-search'></i>
-//     <div class="input-box">
-//         <input type="text" placeholder="Search..." id="searchInput">
-//     </div>
-// </div>
+
 
 // Function to filter products based on search input
 function searchProducts() {
@@ -2556,39 +2598,55 @@ document.getElementById('searchInput').addEventListener('input', searchProducts)
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  displayProducts01();
+  displayNewProducts();
 });
 
-function displayProducts01() {
-  let products = JSON.parse(localStorage.getItem('products01')) || [];
-  
-  // Filter products based on the 'sold' property
-  let filteredProducts = products.filter(product => product.sold === true);
+document.addEventListener('DOMContentLoaded', function () {
+  displayNewProducts();
+});
 
-  // Get the reference to the new container
+function displayNewProducts() {
+  let products = JSON.parse(localStorage.getItem('products')) || [];
+  let filteredProducts = products.filter(product => product.id >= 221 && product.sold === true);
+
   let newContainer = document.getElementById('new-container');
-  newContainer.innerHTML = '';  // Clear the existing content
+  newContainer.innerHTML = '';
 
   filteredProducts.forEach(product => {
-    const productDiv = document.createElement('div');
-    productDiv.classList.add('product');
+    let productDiv = document.createElement('div');
+    productDiv.className = 'product';
 
     productDiv.innerHTML = `
+    <a href="../Views/product-details.html?id=${product.id}">
       <img src="${product.imageUrl}" alt="${product.name} Image" style="max-width: 100%; height: auto;">
-      <h3>${product.name}</h3>
-      <p class="blue">Offer: ${product.category} %Off</p>
+      <p class="blue">Offer: ${product.category}</p>
       <p class="price">Price: $${product.price}</p>
       <p>Original Price: <span class="th">₹${product.ogprice}</span></p>
+      <p>Category: ${product.category}</p>
+      </a>
       <button class="addToCartBtn" data-product-id="${product.id}">${getButtonText(product.id)}</button>
       <a href="https://razorpay.com/payment-link/plink_NPeErRUJTj78rL">
         <button class="buyNowBtn" data-product-id="${product.id}">Buy Now</button>
       </a>
     `;
-    
+
     newContainer.appendChild(productDiv);
+
+    // Add event listener to the newly created addToCart button
+    productDiv.querySelector('.addToCartBtn, .buyNowBtn').addEventListener('click', addToCart);
+
+    document.querySelectorAll('.buyNowBtn').forEach(button => {
+      button.addEventListener('click', function (event) {
+        // Call the existing buyNow function
+        buyNow(event);
+      });
+    });
 
   });
 }
+
+
+
 
 
 
