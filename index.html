@@ -19,7 +19,9 @@
       <div class="nav-links">
         <div class="sidebar-logo">
           <span class="logo-name"><a href="#"><i class="fa fa-shopping-cart red" aria-hidden="true"></i> Stark<span class="black">Mart</span>
-          <i class='bx bx-x' ></i>
+          <i class='bx bx-x' ><button id="mode-toggler" class="btn" style="height: 35px; width: 35px; border-radius:8px; margin-left: 40px;">
+            🌓
+          </button></i>
         </div>
         <ul class="links">
           <li><a href="#">HOME</a></li>
@@ -56,7 +58,7 @@
           </li>
           <li><a href="./views/addcart.html">CART</a></li>
           <li><a href="./views/orderDetails.html">ORDERD</a></li>
-          <li></li>
+          
         </ul>
       </div>
       <div class="search-box">
@@ -64,6 +66,9 @@
         <div class="input-box">
             <input type="text" placeholder="Search..." id="searchInput">
         </div>
+        <button id="mode-toggler-search" class="btn" style="height: 35px; width: 35px; border-radius:8px; margin-left: 40px;">
+          🌓
+        </button>
     </div>    
       </div>
     </div>
@@ -76,7 +81,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   
 
-  
   <div id="carousel" >
     <img src="" id="car_img" alt="carousel Image" />
     <button id="prev" style= "height: 97%;">
@@ -92,16 +96,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
   <!-- <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MorphSVGPlugin3.min.js"></script> -->
 
-  <h1 style=" text-align: center;"></h1>
+  <h1 class="tag" style=" text-align: center;">Men's Style</h1>
   <div id="product-container" class="product-container">
 
     <!-- Products will be displayed here -->
   </div><br><br><br>
-  <!-- <h1 class="down" style=" text-align: center; ">New Launches</h1>
-  <div id="new-container"> -->
+  <h1 class="down" style=" text-align: center; ">New Launches</h1>
+  <div id="new-container">
 
     <!-- Products will be displayed here -->
-  <!-- </div> -->
+  </div>
   <h1 style=" text-align: center;" class="down">Women Dress</h1>
   <div id="women-container">
 

@@ -73,7 +73,7 @@ code {
 	width: 99%;
 	/* margin-left: -10px; */
 	position: absolute;
-	margin-top: -245px;
+	margin-top: -200px;
 	/* justify-content: space-around; */
 	scrollbar-width: thin;
 	/* Firefox */
@@ -150,7 +150,7 @@ code {
 	/* IE and Edge */
 }
 
-#shoes-container {
+#shoes-container, #new-container {
 	display: flex;
 	height: 380px;
 	overflow-x: scroll;
@@ -1228,6 +1228,9 @@ nav .navbar .links li .sub-menu li{
   nav .navbar .nav-links{
   max-width: 100%;
 } 
+#mode-toggler{
+	/* margin-left: 60px; */
+}
 }
   
   .addToCartBtn,
@@ -1246,11 +1249,16 @@ nav .navbar .links li .sub-menu li{
   .down{
 	margin-top: 120px;
   }
+  .tag{
+	margin-top: -90px;
+  }
 
   @media screen and (max-width: 600px) {
-	
+	.tag{
+		margin-top: 50px;
+	}
 	#product-container{
-		margin-top: 10%;
+		margin-top: 4%;
 	}
 	#new-container{
 		/* margin-top: 300px; */
@@ -1269,5 +1277,7 @@ nav .navbar .links li .sub-menu li{
 	#carousel{
 		display: none;
 	}
-	
+	#mode-toggler-search{
+		display: none;
+	}
 }
