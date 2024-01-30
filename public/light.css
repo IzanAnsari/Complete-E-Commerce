@@ -94,130 +94,16 @@ code {
 	/* WebKit */
 }
 
-#women-container {
-	/* border: 1px solid red; */
-	/* border: 1px solid red; */
-	display: flex;
-	height: 390px;
-	overflow-x: scroll;
-	width: 99%;
-	margin-top: 30px;
-	/* justify-content: space-around; */
-	scrollbar-width: thin;
-	/* Firefox */
-	scrollbar-color: transparent transparent;
-	/* Firefox */
-	-ms-overflow-style: none;
-	/* IE and Edge */
-	scrollbar-face-color: transparent;
-	/* IE and Edge */
-}
-
-#child-container {
-	/* border: 1px solid red; */
-	/* border: 1px solid red; */
-	display: flex;
-	height: 350px;
-	overflow-x: scroll;
-	width: 99%;
-	margin-top: 30px;
-	/* justify-content: space-around; */
-	scrollbar-width: thin;
-	/* Firefox */
-	scrollbar-color: transparent transparent;
-	/* Firefox */
-	-ms-overflow-style: none;
-	/* IE and Edge */
-	scrollbar-face-color: transparent;
-	/* IE and Edge */
-}
-
-#access-container {
-	display: flex;
-	height: 350px;
-	overflow-x: scroll;
-	width: 99%;
-	margin-top: 30px;
-	/* justify-content: space-around; */
-	scrollbar-width: thin;
-	/* Firefox */
-	scrollbar-color: transparent transparent;
-	/* Firefox */
-	-ms-overflow-style: none;
-	/* IE and Edge */
-	scrollbar-face-color: transparent;
-	/* IE and Edge */
-}
-
-#shoes-container {
-	display: flex;
-	height: 380px;
-	overflow-x: scroll;
-	width: 99%;
-	margin-top: 30px;
-	/* justify-content: space-around; */
-	scrollbar-width: thin;
-	/* Firefox */
-	scrollbar-color: transparent transparent;
-	/* Firefox */
-	-ms-overflow-style: none;
-	/* IE and Edge */
-	scrollbar-face-color: transparent;
-	/* IE and Edge */
-}
-
-#furniture-container {
-	display: flex;
-	height: 380px;
-	overflow-x: scroll;
-	width: 99%;
-	margin-top: 30px;
-	/* justify-content: space-around; */
-	scrollbar-width: thin;
-	/* Firefox */
-	scrollbar-color: transparent transparent;
-	/* Firefox */
-	-ms-overflow-style: none;
-	/* IE and Edge */
-	scrollbar-face-color: transparent;
-	/* IE and Edge */
-}
-
-#mobile-container {
-	display: flex;
-	height: 380px;
-	overflow-x: scroll;
-	width: 99%;
-	margin-top: 30px;
-	/* justify-content: space-around; */
-	scrollbar-width: thin;
-	/* Firefox */
-	scrollbar-color: transparent transparent;
-	/* Firefox */
-	-ms-overflow-style: none;
-	/* IE and Edge */
-	scrollbar-face-color: transparent;
-	/* IE and Edge */
-}
-
-#home-container {
-	display: flex;
-	height: 380px;
-	overflow-x: scroll;
-	width: 99%;
-	margin-top: 30px;
-	/* justify-content: space-around; */
-	scrollbar-width: thin;
-	/* Firefox */
-	scrollbar-color: transparent transparent;
-	/* Firefox */
-	-ms-overflow-style: none;
-	/* IE and Edge */
-	scrollbar-face-color: transparent;
-	/* IE and Edge */
-}
-
+#women-container,
+#child-container,
+#access-container,
+#new-container,
+#shoes-container,
+#furniture-container,
+#mobile-container,
+#home-container,
 #electonics-container {
+	/* Add any specific styles for individual containers if needed */
 	display: flex;
 	height: 380px;
 	overflow-x: scroll;

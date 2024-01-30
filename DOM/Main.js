@@ -2370,7 +2370,6 @@
 
     // Function to display products on the webpage
     // Fetch products from localStorage
-const products = JSON.parse(localStorage.getItem('products'));
 
 // Function to get the button text based on product id
 function getButtonText(productId) {
@@ -2441,12 +2440,15 @@ function buyNow(event) {
     console.log("Product not found.");
   }
 }
+const products = JSON.parse(localStorage.getItem('products'));
+
 
 // Function to display products on the webpage
+// Function to display products in a specified container within a given range
 function displayProducts(containerId, start, end) {
   const container = document.getElementById(containerId);
 
-  // Display only the first 20 items in the products array
+  // Display products within the specified range in the products array
   const productsToShow = products.slice(start, end);
 
   productsToShow.forEach(product => {
@@ -2486,9 +2488,7 @@ displayProducts('furniture-container', 100, 120);
 displayProducts('mobile-container', 120, 140);
 displayProducts('home-container', 140, 160);
 displayProducts('electonics-container', 160, 180);
-
-
-
+// displayProducts('new-container', 180, 200); // Start from index 181
 
 
 // Function to filter products based on search input
@@ -2541,4 +2541,44 @@ function displayFilteredProducts(filteredProducts, container) {
 
 // Add input event listener for the search input field
 document.querySelector('.search-container input').addEventListener('input', searchProducts);
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  displayProducts01();
+});
+
+function displayProducts01() {
+  let products = JSON.parse(localStorage.getItem('products01')) || [];
+  
+  // Filter products based on the 'sold' property
+  let filteredProducts = products.filter(product => product.sold === true);
+
+  // Get the reference to the new container
+  let newContainer = document.getElementById('new-container');
+  newContainer.innerHTML = '';  // Clear the existing content
+
+  filteredProducts.forEach(product => {
+    const productDiv = document.createElement('div');
+    productDiv.classList.add('product');
+
+    productDiv.innerHTML = `
+      <img src="${product.imageUrl}" alt="${product.name} Image" style="max-width: 100%; height: auto;">
+      <h3>${product.name}</h3>
+      <p class="blue">Offer: ${product.category} %Off</p>
+      <p class="price">Price: $${product.price}</p>
+      <p>Original Price: <span class="th">₹${product.ogprice}</span></p>
+      <button class="addToCartBtn" data-product-id="${product.id}">${getButtonText(product.id)}</button>
+      <a href="https://razorpay.com/payment-link/plink_NPeErRUJTj78rL">
+        <button class="buyNowBtn" data-product-id="${product.id}">Buy Now</button>
+      </a>
+    `;
+    
+    newContainer.appendChild(productDiv);
+
+  });
+}
+
+
+
+
 

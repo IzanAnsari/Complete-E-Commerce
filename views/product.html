@@ -50,52 +50,54 @@
         });
 
         function displayProducts() {
-            let products = JSON.parse(localStorage.getItem('products01')) || [];
+    let products = JSON.parse(localStorage.getItem('products01')) || [];
+    let filteredProducts = products.filter(product => product.id >= 221);
 
-            let productContainer = document.getElementById('productContainer');
-            productContainer.innerHTML = '';
+    let productContainer = document.getElementById('productContainer');
+    productContainer.innerHTML = '';
 
-            let counter = 0;
+    let counter = 0;
 
-            products.forEach(product => {
-                counter++;
+    filteredProducts.forEach(product => {
+        counter++;
 
-                let productDiv = document.createElement('div');
-                productDiv.className = 'product';
+        let productDiv = document.createElement('div');
+        productDiv.className = 'product';
 
-                let removeBtn = document.createElement('button');
-                removeBtn.id = 'remove';
-                removeBtn.innerText = 'Remove';
-                removeBtn.onclick = function () {
-                    removeProduct(product.id);
-                };
+        let removeBtn = document.createElement('button');
+        removeBtn.id = 'remove';
+        removeBtn.innerText = 'Remove';
+        removeBtn.onclick = function () {
+            removeProduct(product.id);
+        };
 
-                let toggleSoldBtn = document.createElement('button');
-                toggleSoldBtn.id = 'toggleSold';
-                toggleSoldBtn.innerText = product.sold ? 'Not Sold' : 'Sold';
-                toggleSoldBtn.onclick = function () {
-                    toggleSold(product.id);
-                };
-                toggleSoldBtn.classList.add(product.sold ? 'not-sold' : 'sold');
+        let toggleSoldBtn = document.createElement('button');
+        toggleSoldBtn.id = 'toggleSold';
+        toggleSoldBtn.innerText = product.sold ? 'Not Sold' : 'Sold';
+        toggleSoldBtn.onclick = function () {
+            toggleSold(product.id);
+        };
+        toggleSoldBtn.classList.add(product.sold ? 'not-sold' : 'sold');
 
-                productDiv.innerHTML = `
-                    <img src="${product.imageUrl}" alt="${product.name}" style="max-width: 100px; max-height: 100px;">
-                    <p>ID: ${product.id}</p>
-                    <p>Name: ${product.name}</p>
-                    <p>Price: $${product.price}</p>
-                    <p>Original Price: $${product.ogprice}</p>
-                    <p>Description: ${product.description}</p>
-                    <p>Category: ${product.category}</p>
-                `;
+        productDiv.innerHTML = `
+            <img src="${product.imageUrl}" alt="${product.name}" style="max-width: 100px; max-height: 100px;">
+            <p>ID: ${product.id}</p>
+            <p>Name: ${product.name}</p>
+            <p>Price: $${product.price}</p>
+            <p>Original Price: $${product.ogprice}</p>
+            <p>Description: ${product.description}</p>
+            <p>Category: ${product.category}</p>
+        `;
 
-                productDiv.appendChild(removeBtn);
-                productDiv.appendChild(toggleSoldBtn);
+        productDiv.appendChild(removeBtn);
+        productDiv.appendChild(toggleSoldBtn);
 
-                productContainer.appendChild(productDiv);
-            });
+        productContainer.appendChild(productDiv);
+    });
 
-            document.getElementById('counter').innerText = `Total Products: ${counter}`;
-        }
+    document.getElementById('counter').innerText = `Total Products: ${counter}`;
+    
+}
 
         function removeProduct(productId) {
             let products = JSON.parse(localStorage.getItem('products01')) || [];
@@ -103,7 +105,6 @@
             localStorage.setItem('products01', JSON.stringify(updatedProducts));
             displayProducts();
         }
-
         function toggleSold(productId) {
             let products = JSON.parse(localStorage.getItem('products01')) || [];
             let updatedProducts = products.map(product => {
@@ -115,4 +116,5 @@
             localStorage.setItem('products01', JSON.stringify(updatedProducts));
             displayProducts();
         }
+       
     </script>
