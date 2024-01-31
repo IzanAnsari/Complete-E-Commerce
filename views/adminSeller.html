@@ -94,8 +94,8 @@
         <label for="image4Url" style="margin-left: 43px;">Image 4 Url:</label>
         <input type="text" id="image4Url" required><br><br>
 
-        <!-- <label for="sold">Sold:</label>
-        <input type="checkbox" id="sold"><br><br> -->
+        <label for="sold">Sold:</label>
+        <input type="checkbox" id="sold"><br><br>
 
         <button type="button" id="add" onclick="addProduct()">Add Product</button>
     </form>
@@ -119,7 +119,7 @@ function Product(name, price, ogprice, category, description, imageUrl, image1Ur
         this.image2Url = image2Url;
         this.image3Url = image3Url;
         this.image4Url = image4Url;
-        // this.sold = sold || false;
+        this.sold = sold || false;
         
         function generateRandomId() {
             // Generate a random number between 1 and 1000 (adjust the range as needed)
@@ -139,7 +139,7 @@ function Product(name, price, ogprice, category, description, imageUrl, image1Ur
     let image2Url = document.getElementById('image2Url').value;
     let image3Url = document.getElementById('image3Url').value;
     let image4Url = document.getElementById('image4Url').value;
-
+    let sold = document.getElementById('sold').checked    
     // Validate input values (add additional validation as needed)
     if (!name || isNaN(price) || isNaN(ogprice) || !category || !imageUrl) {
         alert("Please fill in all required fields.");
