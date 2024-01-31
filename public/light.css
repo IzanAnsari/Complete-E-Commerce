@@ -1001,7 +1001,7 @@ nav .navbar .links li .arrow{
   line-height: 70px;
   text-align: center;
   display: inline-block;
-  color: #fff;
+  color: #555555;
   transition: all 0.3s ease;
 }
 nav .navbar .links li .sub-menu{
@@ -1024,7 +1024,7 @@ nav .navbar .links li:hover .js-sub-menu{
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 .navbar .links li .sub-menu a{
-  color: #ffffff;
+  color: #000000;
   font-size: 15px;
   font-weight: 500;
 }
