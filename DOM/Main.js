@@ -2572,7 +2572,6 @@ function addToCart(event) {
   }
 }
 
-
 const products = JSON.parse(localStorage.getItem('products'));
 
 
@@ -2606,9 +2605,16 @@ function displayProducts(containerId, start, end) {
   });
 
   // Add event listeners after all products are added to the DOM
-  container.querySelectorAll('.addToCartBtn, .buyNowBtn').forEach(button => {
-    button.addEventListener('click', addToCart);
-  });
+  const addToCartButtons = document.querySelectorAll('.addToCartBtn');
+addToCartButtons.forEach(button => {
+  button.addEventListener('click', addToCart);
+});
+
+// Add event listener for buyNowBtn
+const buyNowButtons = document.querySelectorAll('.buyNowBtn');
+buyNowButtons.forEach(button => {
+  button.addEventListener('click', buyNow);
+});
 }
 
 // Call the displayProducts function to initialize the webpage for different categories
