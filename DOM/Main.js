@@ -2678,9 +2678,16 @@ function displayFilteredProducts(filteredProducts, container) {
   });
 
   // Add event listeners after all products are added to the DOM
-  container.querySelectorAll('.addToCartBtn, .buyNowBtn').forEach(button => {
-    button.addEventListener('click', addToCart);
-  });
+  const addToCartButtons = document.querySelectorAll('.addToCartBtn');
+addToCartButtons.forEach(button => {
+  button.addEventListener('click', addToCart);
+});
+
+// Add event listener for buyNowBtn
+const buyNowButtons = document.querySelectorAll('.buyNowBtn');
+buyNowButtons.forEach(button => {
+  button.addEventListener('click', buyNow);
+});
 }
 
 // Other functions and code (assuming they are defined elsewhere in your script)
@@ -2689,10 +2696,6 @@ function displayFilteredProducts(filteredProducts, container) {
 document.getElementById('searchInput').addEventListener('input', searchProducts);
 
 
-
-document.addEventListener('DOMContentLoaded', function () {
-  displayNewProducts();
-});
 
 document.addEventListener('DOMContentLoaded', function () {
   displayNewProducts();
