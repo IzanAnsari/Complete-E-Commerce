@@ -2564,8 +2564,6 @@ function addToCart(event) {
     // Change button text to "Added"
     addButton.textContent = "Added";
 
-
-
     event.currentTarget.addEventListener('dblclick', function () {
       alert("Product added to the cart!");
     });
