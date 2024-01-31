@@ -1024,7 +1024,7 @@ nav .navbar .links li:hover .js-sub-menu{
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 .navbar .links li .sub-menu a{
-  color: #000000;
+  color: #ffffff;
   font-size: 15px;
   font-weight: 500;
 }
@@ -1109,6 +1109,9 @@ nav .navbar .links li:hover .js-sub-menu{
 .navbar .bx-menu{
   display: none;
 }
+.htmlcss-arrow{
+	color: rgb(0, 0, 0);
+}
 @media (max-width:920px) {
   nav .navbar{
     max-width: 100%;
@@ -1154,7 +1157,7 @@ nav .navbar .links li:hover .js-sub-menu{
   }
   .sidebar-logo .logo-name{
     font-size: 25px;
-    color: #fff;
+    color: #000000;
   }
     .sidebar-logo  i,
     .navbar .bx-menu{
@@ -1296,5 +1299,8 @@ nav .navbar .links li .sub-menu li{
 	}
 	#next{
 		display: none;
+	}
+	.down{
+		margin-top: 170px;
 	}
 }
