@@ -2493,8 +2493,8 @@
       sold : true,
     },
   ];
+  localStorage.setItem("products", JSON.stringify(ecommerceProducts)) 
   if(!localStorage.getItem("products")){
-    localStorage.setItem("products", JSON.stringify(ecommerceProducts)) 
     }
 
 
