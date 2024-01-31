@@ -1259,7 +1259,7 @@ nav .navbar .links li .sub-menu li{
 		margin-top: 50px;
 	}
 	#product-container{
-		margin-top: 4%;
+		margin-top: -180px;
 	}
 	#new-container{
 		/* margin-top: 300px; */
@@ -1270,15 +1270,31 @@ nav .navbar .links li .sub-menu li{
 	section {
 		display: none;
 	  }
-	/* #carousel{
+	#carousel{
 		margin-top: 60px;
-		height: 300px;
-	} */
+		/* height: 300px; */
+	}
+	#car_img{
+		height: 230px;
+		/* width: 300px; */
+		/* width: auto; */
+	}
 	
 	#carousel{
+		/* display: none; */
+		margin-top: 16%;
+		/* height: 340px; */
+	}
+	.tag{
 		display: none;
 	}
 	#mode-toggler-search{
 		/* display: none; */
+	}
+	#prev{
+		display: none;
+	}
+	#next{
+		display: none;
 	}
 }
