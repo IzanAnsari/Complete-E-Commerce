@@ -1,88 +1,97 @@
 <!DOCTYPE html>
 <!-- Created By CodingNepal - www.codingnepalweb.com -->
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-   <title> Responsive Drop Down Navigation Menu | CodingLab </title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <!-- Boxicons CDN Link -->
-    
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
+
+<head>
+  <meta charset="UTF-8">
+  <title>StarkMart</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <!-- Boxicons CDN Link -->
+
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
 <body>
   <nav>
     <div class="navbar">
       <i class='bx bx-menu'></i>
-      <div class="logo" style="font-family: sans-serif;"><a href="#"><i class="fa fa-shopping-cart red" aria-hidden="true"></i> Stark<span class="black">Mart
-      </span></a></div>
+      <div class="logo" style="font-family: sans-serif;"><a href="#"><i class="fa fa-shopping-cart red"
+            aria-hidden="true"></i> Stark<span class="black">Mart
+          </span></a></div>
       <div class="nav-links">
         <div class="sidebar-logo">
-          <span class="logo-name"><a href="#" style="color: red;"><i class="fa fa-shopping-cart red" aria-hidden="true" style="color: red;"></i> Stark<span class="black" style="color: rgb(94, 91, 91);">Mart</span>
-            <i class='bx bx-x' >
-              
-            </i>.....
-            <button id="mode-toggler" class="btn" style="height: 35px; width: 35px; border-radius:8px;">
-              🌓
-            </button>
-          
+          <span class="logo-name"><a href="#" style="color: red;"><i class="fa fa-shopping-cart red" aria-hidden="true"
+                style="color: red;"></i> Stark<span class="black" style="color: rgb(94, 91, 91);">Mart</span>
+              <i class='bx bx-x'>
+
+              </i>.....
+              <button id="mode-toggler" class="btn" style="height: 35px; width: 35px; border-radius:8px;">
+                🌓
+              </button>
+
         </div>
-        <ul class="links" >
+        <ul class="links">
           <li><a href="#">
-            <i class="fa fa-home" aria-hidden="true" style="color: grey; padding: 7px; height: 5px;font-size: 25px; width: 45px; border-radius: x; margin-top: 18px;"></i>
-          </a></li>
+              <i class="fa fa-home" aria-hidden="true"
+                style="color: grey; padding: 7px; height: 5px;font-size: 25px; width: 45px; border-radius: x; margin-top: 18px;"></i>
+            </a></li>
           <li>
             <a href="#">
-            <i class="fa fa-list" aria-hidden="true" style="color: grey; padding: 7px; height: 5px;font-size: 25px; width: 45px; border-radius: x; margin-top: 18px;"></i>
+              <i class="fa fa-list" aria-hidden="true"
+                style="color: grey; padding: 7px; height: 5px;font-size: 25px; width: 45px; border-radius: x; margin-top: 18px;"></i>
             </a>
-            <i class='bx bxs-chevron-down htmlcss-arrow arrow' style="color: black;"></i>
+            <i class='bx bxs-chevron-down htmlcss-arrow arrow' style="color: gray;"></i>
             <ul class="htmlCss-sub-menu sub-menu">
-              <li><a href="#">New Launches</a></li>
-              <li><a href="#">Men's Dress</a></li>
-              <li><a href="#">Women's Dress</a></li>
-              <li><a href="#">children Dress</a></li>
-              <li><a href="#">Accessories</a></li>
-            
+              <li><a href="#new">New Launches</a></li>
+              <li><a href="#">Men's Collection</a></li>
+              <li><a href="#women">Women's Collection</a></li>
+              <li><a href="#childern">children collection</a></li>
+              <li><a href="#access">Accessories</a></li>
+
               <li class="more">
-                <span><a href="#">More</a>
-                <i class='bx bxs-chevron-right arrow more-arrow'></i>
-              </span>
+                <span><a href="#">more</a>
+                  <i class='bx bxs-chevron-right arrow more-arrow'></i>
+                </span>
                 <ul class="more-sub-menu sub-menu">
-                  <li><a href="#">Neumorphism</a></li>
-                  <li><a href="#">Pre-loader</a></li>
-                  <li><a href="#">Glassmorphism</a></li>
+                  <li><a href="#access">Fashion Accessories</a></li>
+                  <li><a href="#furniture">Household Furniture</a></li>
+                  <li><a href="#mobile">Smartphones</a></li>
+                  <li><a href="#home">Household Appliances</a></li>
+                  <li><a href="#electronics">Electronic Devices</a></li>
                 </ul>
               </li>
             </ul>
           </li>
           <li>
             <a href="#">
-            <i class="fa fa-user-secret" aria-hidden="true" style="color: grey; padding: 7px; height: 5px;font-size: 25px; width: 45px; border-radius: x; margin-top: 18px;"></i>
+              <i class="fa fa-user-secret" aria-hidden="true"
+                style="color: grey; padding: 7px; height: 5px;font-size: 25px; width: 45px; border-radius: x; margin-top: 18px;"></i>
             </a>
-            <i class='bx bxs-chevron-down js-arrow arrow ' style="color: black;"></i>
+            <i class='bx bxs-chevron-down js-arrow arrow ' style="color: gray;"></i>
             <ul class="js-sub-menu sub-menu">
               <li><a href="./views/adminSeller.html">Admin</a></li>
               <li><a href="#">Sellers</a></li>
             </ul>
           </li>
-            <li><a href="./views/addcart.html"> 
-            <i class="fa fa-cart-arrow-down" aria-hidden="true" style="color: grey; padding: 7px; height: 5px;font-size: 25px; width: 45px; border-radius: x; margin-top: 18px;"></i>
+          <li><a href="./views/addcart.html">
+              <i class="fa fa-cart-arrow-down" aria-hidden="true"
+                style="color: grey; padding: 7px; height: 5px;font-size: 25px; width: 45px; border-radius: x; margin-top: 18px;"></i>
             </a></li>
-          <li><a href="./views/orderDetails.html"> 
-            <i class="fa fa-gift" aria-hidden="true" style="color: grey; padding: 7px; height: 5px;font-size: 25px; width: 45px; border-radius: x; margin-top: 18px;"></i>
-            
-          </a></li>
-          
+          <li><a href="./views/orderDetails.html">
+              <i class="fa fa-gift" aria-hidden="true"
+                style="color: grey; padding: 7px; height: 5px;font-size: 25px; width: 45px; border-radius: x; margin-top: 18px;"></i>
+
+            </a></li>
         </ul>
       </div>
       <div class="search-box">
         <i class='bx bx-search'></i>
         <div class="input-box">
-            <input type="text" placeholder="Search..." id="searchInput">
+          <input type="text" placeholder="Search..." id="searchInput">
         </div>
-        
-    </div>    
       </div>
+    </div>
     </div>
   </nav>
   <div class="gradient" style="position: sticky; top: 70px; z-index: 100;"></div>
@@ -91,103 +100,97 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-  
 
-  <div id="carousel" >
+  <div id="carousel">
     <img src="" id="car_img" alt="carousel Image" />
-    <button id="prev" style= "height: 97%;">
-      <span style="border: 2px solid black; margin-left: -5px;"><</span>
+    <button id="prev" style="height: 97%;">
+      <span style="border: 2px solid black; margin-left: -5px;">
+        <</span>
     </button>
-    <button id="next" style= "height: 97%;">
+    <button id="next" style="height: 97%;">
       <span style="border: 2px solid black;">></span>
     </button>
   </div><br><br>
 
-
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
   <!-- <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MorphSVGPlugin3.min.js"></script> -->
 
-  <h1 class="tag" style=" text-align: center;">Men's Style</h1>
+  <h1 class="tag" style=" text-align: center;" id="Men">Men's Style</h1>
   <div id="product-container" class="product-container">
 
     <!-- Products will be displayed here -->
   </div><br><br><br>
-  <h1 style=" text-align: center; "class="down">New Launches</h1>
+  <h1 style=" text-align: center; " class="down" id="new">New Launches</h1>
   <div id="new-container">
 
 
     <!-- Products will be displayed here -->
   </div>
-  <h1 style=" text-align: center;" >Women Dress</h1>
+  <h1 style=" text-align: center;" id="women">Women Dress</h1>
   <div id="women-container">
 
     <!-- Products will be displayed here -->
   </div>
 
-  <h1 style=" text-align: center;">Children Dress</h1>
+  <h1 style=" text-align: center;" id="children">Children Dress</h1>
   <div id="child-container">
 
     <!-- Products will be displayed here -->
   </div>
 
-  <h1 style=" text-align: center;">Shoes</h1>
+  <h1 style=" text-align: center;" id="shoes">Shoes</h1>
   <div id="shoes-container">
 
     <!-- Products will be displayed here -->
   </div><br><br>
 
-<!--  -->
+  <!--  -->
   <section>
     <div class="container new">
       <!-- <h3>New Launches</h3> -->
       <div id="newLaunches">
-        <p id="left"> 
-           </p>
-            <div id="content">
-            </div>
-            <p id="right">  </p>
+        <p id="left">
+        </p>
+        <div id="content">
+        </div>
+        <p id="right"> </p>
       </div>
     </div>
   </section>
-  <h1 style=" text-align: center;">Accessories</h1>
+  <h1 style=" text-align: center;" id="access">Accessories</h1>
   <div id="access-container">
 
     <!-- Products will be displayed here -->
   </div>
-  <h1 style=" text-align: center;">Furniture</h1>
+  <h1 style=" text-align: center;" id="furniture">Furniture</h1>
   <div id="furniture-container">
 
     <!-- Products will be displayed here -->
   </div>
-  <h1 style=" text-align: center;">Mobile</h1>
+  <h1 style=" text-align: center;" id="mobile">Mobile</h1>
   <div id="mobile-container">
 
     <!-- Products will be displayed here -->
   </div>
-  
-  <h1 style=" text-align: center;">Home-Applience</h1>
+
+  <h1 style=" text-align: center;" id="home">Home-Applience</h1>
   <div id="home-container">
 
     <!-- Products will be displayed here -->
   </div>
-  <h1 style=" text-align: center;">Electonics</h1>
+  <h1 style=" text-align: center;" id="electronics">Electonics</h1>
   <div id="electonics-container">
 
     <!-- Products will be displayed here -->
   </div>
-
-
-
   <div class="gradient"></div>
-
   <footer>
     <div class="content">
       <div class="top">
         <div class="logo-details">
           <h5 class="red"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Stark<span class="black"> Mart
-            24/7
-          </span></h5>
+              24/7
+            </span></h5>
 
         </div>
         <div class="media-icons">
@@ -202,35 +205,38 @@
         <ul class="box">
           <li class="link_name">Company</li>
           <li><a href="#">Home</a></li>
-          <li><a href="#new">Contact us</a></li>
-          <li><a href="#">About us</a></li>
-          <li><a href="#">Get started</a></li>
+          <li><a href="tel:+919359237760">Contact us</a></li>
+          <li><a href="https://beamish-khapse-08b16a.netlify.app/">About us</a></li>
+          <li><a href="https://wa.me/9359237760">Services</a></li>
         </ul>
         <ul class="box">
-          <li class="link_name">Services</li>
-          <li><a href="#">App design</a></li>
-          <li><a href="#">Web design</a></li>
-          <li><a href="#">Logo design</a></li>
-          <li><a href="#">Banner design</a></li>
+          <li class="link_name">Legal</li>
+          <li><a href="https://www.amazon.in/gp/help/customer/display.html?nodeId=201909010">Privacy Policy</a></li>
+          <li><a href="https://www.amazon.in/gp/help/customer/display.html?nodeId=201083470&ref_=footer_swc">100% Purchase Protection</a></li>
+          <li><a href="https://www.amazon.in/gp/css/homepage.html?ref_=footer_ya">FAQ's</a></li>
+          <li><a href="https://aws.amazon.com/?ref_=ya_d_l_websvcs_acct">Customer Agreement</a></li>
         </ul>
         <ul class="box">
-          <li class="link_name">Account</li>
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">My account</a></li>
-          <li><a href="#">Prefrences</a></li>
-          <li><a href="#">Purchase</a></li>
+          <li class="link_name">Classification</li>
+          <li><a href="#">Men's Collection</a></li>
+          <li><a href="#women">Women's Collection</a></li>
+          <li><a href="#new">New Launches</a></li>
+          <li><a href="#children">Children's Collection</a></li>
+          <li><a href="#shoes">Shoes Collection</a></li>
         </ul>
         <ul class="box">
-          <li class="link_name">Courses</li>
-          <li><a href="#">HTML & CSS</a></li>
-          <li><a href="#">JavaScript</a></li>
-          <li><a href="#">Photography</a></li>
-          <li><a href="#">Photoshop</a></li>
+          <li class="link_name">Utilization</li>
+          <li><a href="#access">Fashion Accessories</a></li>
+          <li><a href="#furniture">Household Furniture</a></li>
+          <li><a href="#mobile">Smartphones</a></li>
+          <li><a href="#home">Household Appliances</a></li>
+          <li><a href="#electronics">Electronic Devices</a></li>
         </ul>
+        
         <ul class="box input-box">
           <li class="link_name">Subscribe</li>
           <li><input type="text" placeholder="Enter your email" style="background-color: darkcyan;"></li>
-          <li><input type="button" value="Subscribe"></li>
+          <li><input type="button" value="Subscribe" style="border: 2px solid gray;"></li>
         </ul>
       </div>
     </div>
@@ -245,54 +251,12 @@
     </div>
   </footer>
 
-<script src="./DOM/butttons.js"></script>
-<script src="./DOM/darkmode.min.js"></script>
-<script src="./DOM/theme.js"></script>
-<script src="./DOM/Main.js"></script>
-<script src="./DOM/store.js"></script>
-<script src="./DOM/carusal.js"></script>
+  <script src="./DOM/butttons.js"></script>
+  <script src="./DOM/darkmode.min.js"></script>
+  <script src="./DOM/theme.js"></script>
+  <script src="./DOM/Main.js"></script>
+  <script src="./DOM/store.js"></script>
+  <script src="./DOM/carusal.js"></script>
 </body>
+
 </html>
-
-<script>
-// search-box open close js code
-let navbar = document.querySelector(".navbar");
-let searchBox = document.querySelector(".search-box .bx-search");
-// let searchBoxCancel = document.querySelector(".search-box .bx-x");
-
-searchBox.addEventListener("click", ()=>{
-  navbar.classList.toggle("showInput");
-  if(navbar.classList.contains("showInput")){
-    searchBox.classList.replace("bx-search" ,"bx-x");
-  }else {
-    searchBox.classList.replace("bx-x" ,"bx-search");
-  }
-});
-
-// sidebar open close js code
-let navLinks = document.querySelector(".nav-links");
-let menuOpenBtn = document.querySelector(".navbar .bx-menu");
-let menuCloseBtn = document.querySelector(".nav-links .bx-x");
-menuOpenBtn.onclick = function() {
-navLinks.style.left = "0";
-}
-menuCloseBtn.onclick = function() {
-navLinks.style.left = "-100%";
-}
-
-
-// sidebar submenu open close js code
-let htmlcssArrow = document.querySelector(".htmlcss-arrow");
-htmlcssArrow.onclick = function() {
- navLinks.classList.toggle("show1");
-}
-let moreArrow = document.querySelector(".more-arrow");
-moreArrow.onclick = function() {
- navLinks.classList.toggle("show2");
-}
-let jsArrow = document.querySelector(".js-arrow");
-jsArrow.onclick = function() {
- navLinks.classList.toggle("show3");
-}
-    
-</script>

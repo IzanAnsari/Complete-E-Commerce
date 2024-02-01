@@ -2493,11 +2493,11 @@
       sold : true,
     },
   ];
-  localStorage.setItem("products", JSON.stringify(ecommerceProducts)) 
+
+
   if(!localStorage.getItem("products")){
+    localStorage.setItem("products", JSON.stringify(ecommerceProducts)) 
     }
-
-
 
     // Function to display products on the webpage
     // Fetch products from localStorage
@@ -2507,8 +2507,6 @@ function getButtonText(productId) {
   var addedProducts = JSON.parse(localStorage.getItem("addedProducts")) || [];
   return addedProducts.includes(productId) ? "Added" : "Add to Cart";
 }
-
-
 
 // Function to handle the "Buy Now" button click
 function buyNow(event) {
@@ -2632,9 +2630,6 @@ displayProducts('electonics-container', 160, 180);
 // displayProducts('new-container', 180, products.length);
 // console.log(products.slice(180)); // Log products beyond index 180
 
-
-
-
 // Function to filter products based on search input
 function searchProducts() {
   const searchInput = document.getElementById('searchInput').value.toLowerCase();
@@ -2691,11 +2686,8 @@ buyNowButtons.forEach(button => {
 }
 
 // Other functions and code (assuming they are defined elsewhere in your script)
-
 // Example of how to trigger the search on an event, for example, on the 'input' event:
 document.getElementById('searchInput').addEventListener('input', searchProducts);
-
-
 
 document.addEventListener('DOMContentLoaded', function () {
   displayNewProducts();
@@ -2737,7 +2729,6 @@ function displayNewProducts() {
         buyNow(event);
       });
     });
-
   });
 }
 
