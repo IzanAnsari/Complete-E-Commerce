@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seller Page</title>
     <style>
-        #newProduct{
+        #newProduct {
             border: 2px solid #3498db;
             border-radius: 10px;
             padding: 20px;
@@ -13,7 +14,8 @@
             margin: 2% auto;
             background-color: #ffffff;
         }
-        button{
+
+        button {
             background-color: #17696a;
             color: #fff;
             padding: 10px 15px;
@@ -22,53 +24,60 @@
             cursor: pointer;
             font-size: 16px;
         }
+
         button:hover {
             background-color: #919ea6;
         }
-        
-        label{
+
+        label {
             margin-top: 10px;
             font-weight: bold;
         }
+
         input {
             /* width: 100%; */
             padding: 8px;
             margin-top: 2px;
-            
+
             margin-bottom: 1px;
             box-sizing: border-box;
             border: 1px solid #ccc;
             border-radius: 4px;
         }
+
         .red {
-	color: #e44d26;
-	font-size: 23px;
-	margin-top: 15px;
-	margin-bottom: 15px;
-}
-.black {
-	color: #777;
-}
+            color: #e44d26;
+            font-size: 23px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
 
+        .black {
+            color: #777;
+        }
 
+        @media (max-width: 768px) {
+            textarea {}
+        }
     </style>
 </head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 <body>
-    
-    <h5 class="red" style="margin-top: 2px;"><i class="fa fa-shopping-cart" aria-hidden="true" style="margin-top: 20px;"></i> Stark<span class="black"> Mart
-        24/7
-      </span></h5>
-      <h2 style="color: #17696a; margin-left: 35%;" >Merchant Administration Panel</h2>
-    <a href="./product.html"><button style="margin-left: 85%;">See the Product</button></a>
+
+    <nav style="font-size: 30px; margin: 0px 30px;">
+       <a href="../index.html" style="text-decoration: none;"><div style="cursor: pointer;"><i class="fa fa-shopping-cart red" aria-hidden="true" style="color: red; font-size: 40px; "></i>
+        Stark<span class="black" style="color: rgb(94, 91, 91);">Mart</span></div></a>
+    </nav><br>
+    <h2 style="color: #17696a; margin-left: 35%;">Merchant Administration Panel</h2>
+    <a href="./sellerDisplay.html"><button style="margin-left: 85%;">See the Product</button></a>
     <form id="newProduct">
 
         <label for="name">Product Name:</label>
         <input type="text" id="name" required>
 
         <label for="price" style="margin-left: 70px;">Price:</label>
-        <input type="number" id="price" required ><br><br>
+        <input type="number" id="price" required><br><br>
 
         <label for="ogprice">Original Price:</label>
         <input type="number" id="ogprice" required>
@@ -76,10 +85,11 @@
         <label for="category" style="margin-left: 30px;">Offer in % :</label>
         <input type="text" id="category" required><br><br>
 
-        <label for="description">Description:</label>
-        <input type="text" id="description" required style="padding-bottom: 55px; padding-left: 30px;">
+        <label for="message">Description:</label><br>
+        <textarea id="description" name="message" rows="5" cols="38" required
+            style="margin-bottom: 20px;"></textarea><br>
 
-        <label for="imageUrl" style="margin-left: 35px;">Image Url:</label>
+        <label for="imageUrl">Image Url:</label>
         <input type="text" id="imageUrl" required><br><br>
 
         <label for="image1Url">Image 1 Url:</label>
@@ -101,13 +111,14 @@
     </form>
 
 </body>
+
 </html>
 
 
 
 <script>
-
-function Product(name, price, ogprice, category, description, imageUrl, image1Url, image2Url, image3Url, image4Url, sold) {
+    // Constructor function for Product
+    function Product(name, price, ogprice, category, description, imageUrl, image1Url, image2Url, image3Url, image4Url, sold) {
         this.id = generateRandomId();
         this.name = name;
         this.price = price;
@@ -120,57 +131,42 @@ function Product(name, price, ogprice, category, description, imageUrl, image1Ur
         this.image3Url = image3Url;
         this.image4Url = image4Url;
         this.sold = sold || false;
-        
+
         function generateRandomId() {
             // Generate a random number between 1 and 1000 (adjust the range as needed)
             return Math.floor(Math.random() * 10000) + 1;
         }
     }
-    
+
+    // Function to add product to local storage
     function addProduct() {
-    // Get form input values
-    let name = document.getElementById('name').value;
-    let price = parseFloat(document.getElementById('price').value);
-    let ogprice = parseFloat(document.getElementById('ogprice').value);
-    let category = document.getElementById('category').value;
-    let description = document.getElementById('description').value;
-    let imageUrl = document.getElementById('imageUrl').value;
-    let image1Url = document.getElementById('image1Url').value;
-    let image2Url = document.getElementById('image2Url').value;
-    let image3Url = document.getElementById('image3Url').value;
-    let image4Url = document.getElementById('image4Url').value;
-    let sold = document.getElementById('sold').checked    
-    // Validate input values (add additional validation as needed)
-    if (!name || isNaN(price) || isNaN(ogprice) || !category || !imageUrl) {
-        alert("Please fill in all required fields.");
-        return;
+        // Retrieve existing products from local storage or initialize an empty array
+        let products = JSON.parse(localStorage.getItem('products')) || [];
+
+        // Create a new product object using constructor function
+        let newProduct = new Product(
+            document.getElementById('name').value,
+            parseFloat(document.getElementById('price').value),
+            parseFloat(document.getElementById('ogprice').value),
+            document.getElementById('category').value,
+            document.getElementById('description').value,
+            document.getElementById('imageUrl').value,
+            document.getElementById('image1Url').value,
+            document.getElementById('image2Url').value,
+            document.getElementById('image3Url').value,
+            document.getElementById('image4Url').value,
+            document.getElementById('sold').checked
+        );
+
+        // Add the new product to the array
+        products.push(newProduct);
+
+        // Save the updated array back to local storage
+        localStorage.setItem('products', JSON.stringify(products));
+
+        // Clear the form fields
+        document.getElementById('newProduct').reset();
+
+        // alert('Product added successfully!');
     }
-
-    console.log("Creating new product instance...");
-
-    // Create new Product instance
-    let product = new Product(name, price, ogprice, category, description, imageUrl, image1Url, image2Url, image3Url, image4Url);
-
-    console.log("New product instance created:", product);
-
-    // Get existing products from local storage
-    let ecommerceProducts = JSON.parse(localStorage.getItem('products')) || [];
-
-    console.log("Before Adding Product:", ecommerceProducts);
-
-    // Add the new product to the array
-    ecommerceProducts.push(product);
-
-    console.log("After Adding Product:", ecommerceProducts);
-
-    // Update local storage with the modified array
-    localStorage.setItem('products', JSON.stringify(ecommerceProducts));
-
-    console.log("Product added successfully!");
-
-    // Reset the form
-    document.getElementById('newProduct').reset();
-}
-
 </script>
-

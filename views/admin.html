@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Listing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            /* font-family: Arial, sans-serif; */
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+            margin: 0;
+            display: inline-block;
+        }
+
+        .cart-icon {
+            color: red;
+            font-size: 40px;
+            vertical-align: middle;
+        }
+
+        #counter {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        #productContainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .product {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 250px;
+            text-align: center;
+        }
+
+        .product img {
+            max-width: 100px;
+            max-height: 100px;
+            margin-bottom: 10px;
+        }
+
+        .product p {
+            margin: 5px 0;
+        }
+
+        .product-name {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .product-price {
+            color: #009688;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .product-description {
+            color: #666;
+        }
+
+    
+        #remove,
+    #toggleSold {
+        padding: 10px;
+        margin-right: 10px; /* Add margin between buttons */
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: background-color 0.3s, color 0.3s;
+        font-weight: bold;
+    }
+
+    #remove {
+        background-color: #e74c3c; /* Dark red for remove button */
+        color: #fff;
+    }
+
+    #remove:hover {
+        background-color: #c0392b; /* Darken on hover */
+    }
+
+    #toggleSold {
+        color: #fff;
+        background-color: #3498db; /* Blue for toggle button */
+        margin-top: 5px;
+    }
+
+    #toggleSold:hover {
+        background-color: #2980b9; /* Darken on hover */
+    }
+
+    #toggleSold.sold {
+        background-color: #e74c3c; /* Dark red when sold */
+    }
+
+    #toggleSold.not-sold {
+        background-color: #2ecc71; /* Green when not sold */
+    }
+
+    #toggleSold.sold:hover,
+    #toggleSold.not-sold:hover {
+        filter: brightness(90%); /* Slightly darken on hover */
+    }
+
+    /* Additional styles for a more attractive look */
+    #remove,
+    #toggleSold {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+    }
+
+    #remove:hover,
+    #toggleSold:hover {
+        transform: scale(1.05); /* Scale up on hover */
+    }
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <nav style="font-size: 30px; margin: 30px 30px;">
+        <div style="cursor: pointer;"><a href="../index.html">
+        <i class="fa fa-shopping-cart red" aria-hidden="true" style="color: red; font-size: 40px;"></i>
+        Stark<span class="black" style="color: rgb(94, 91, 91);">Mart</span></a></div>
+    </nav><br>
+    <div id="counter">Total Products: 0</div>
+
+    <div id="productContainer"></div>
+</body>
+</html>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            displayProducts();
+        });
+
+        function displayProducts() {
+    let products = JSON.parse(localStorage.getItem('products')) || [];
+    let filteredProducts = products.filter(product => product.id >= 221);
+
+    let productContainer = document.getElementById('productContainer');
+    productContainer.innerHTML = '';
+
+    let counter = 0;
+
+    filteredProducts.forEach(product => {
+        counter++;
+
+        let productDiv = document.createElement('div');
+        productDiv.className = 'product';
+
+        let removeBtn = document.createElement('button');
+        removeBtn.id = 'remove';
+        removeBtn.innerText = 'Remove';
+        removeBtn.onclick = function () {
+            removeProduct(product.id);
+        };
+
+        let toggleSoldBtn = document.createElement('button');
+        toggleSoldBtn.id = 'toggleSold';
+        toggleSoldBtn.innerText = product.sold ? 'Not Sold' : 'Sold';
+        toggleSoldBtn.onclick = function () {
+            toggleSold(product.id);
+        };
+        toggleSoldBtn.classList.add(product.sold ? 'not-sold' : 'sold');
+
+        productDiv.innerHTML = `
+            <a href="../Views/product-details.html?id=${product.id}">
+            <img src="${product.imageUrl}" alt="${product.name}" style="max-width: 100px; max-height: 100px;">
+            <p>ID: ${product.id}</p>
+            <p>Name: ${product.name}</p>
+            <p>Price: $${product.price}</p>
+            <p>Original Price: $${product.ogprice}</p>
+            <p>Description: ${product.description}</p>
+            <p>Category: ${product.category}</p></a>
+        `;
+
+        productDiv.appendChild(removeBtn);
+        productDiv.appendChild(toggleSoldBtn);
+
+        productContainer.appendChild(productDiv);
+    });
+
+    document.getElementById('counter').innerText = `Total Products: ${counter}`;
+    
+}
+
+        function removeProduct(productId) {
+            let products = JSON.parse(localStorage.getItem('products')) || [];
+            let updatedProducts = products.filter(product => product.id !== productId);
+            localStorage.setItem('products', JSON.stringify(updatedProducts));
+            displayProducts();
+        }
+        function toggleSold(productId) {
+            let products = JSON.parse(localStorage.getItem('products')) || [];
+            let updatedProducts = products.map(product => {
+                if (product.id === productId) {
+                    product.sold = !product.sold;
+                }
+                return product;
+            });
+            localStorage.setItem('products', JSON.stringify(updatedProducts));
+            displayProducts();
+        }
+       
+    </script>

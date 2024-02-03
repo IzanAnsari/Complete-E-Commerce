@@ -1,14 +1,30 @@
-html, body {
-    margin: 0 ;
-    padding: 0 ;
-}
-
 html {
 	box-sizing: border-box;
 }
+body {
+	margin: 0;
+	padding: 0;
+	overflow-y: scroll;
+	scrollbar-width: thin;
+	scrollbar-color: transparent transparent; /* Firefox */
+}
 
-*, *::before, *::after {
-	box-sizing: inherit;
+/* For Webkit browsers like Chrome and Safari */
+body::-webkit-scrollbar {
+	width: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: transparent;
+}
+
+/* For Microsoft Edge */
+body::-ms-scrollbar {
+	color: transparent;
+}
+
+body::-ms-thumb {
+	background-color: transparent;
 }
 
 body {
@@ -935,7 +951,7 @@ nav
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:  sans-serif;
+  /* font-family:  sans-serif; */
 }
 
 nav{
