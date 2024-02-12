@@ -2612,7 +2612,7 @@ function displayProducts(containerId, start, end) {
         <p>Original Price: <span class="th">₹${product.ogprice}</span></p>
       </a>
       <button class="addToCartBtn" data-product-id="${product.id}">${getButtonText(product.id)}</button>
-      <a href="https://razorpay.com/payment-link/plink_NPeErRUJTj78rL">
+      <a href="../views/payment.html">
         <button class="buyNowBtn" data-product-id="${product.id}">Buy Now</button>
       </a>
     `;
