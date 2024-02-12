@@ -2492,6 +2492,20 @@
       image4Url: 'https://m.media-amazon.com/images/I/71E-ptCgHcL._SX679_.jpg',
       sold : true,
     },
+    {
+      id: 439,
+      name: 'PortablePowerBank',
+      price: 924.99,
+      ogprice: 1339.99,
+      category: '38',
+      description: 'Compact Portable Power Bank for Charging Devices on the Go.',
+      imageUrl: 'https://m.media-amazon.com/images/I/71OcPYwiZQL._SX679_.jpg',
+      image1Url: 'https://m.media-amazon.com/images/I/71OcPYwiZQL._SX679_.jpg',
+      image2Url: 'https://m.media-amazon.com/images/I/71XLCSIqDIL._SX679_.jpg',
+      image3Url: 'https://m.media-amazon.com/images/I/71t1HtfIPAL._SX679_.jpg',
+      image4Url: 'https://m.media-amazon.com/images/I/81SBnMJYAZL._SX679_.jpg',
+
+    },
     
   ];
 
@@ -2711,6 +2725,7 @@ function displayNewProducts() {
     productDiv.innerHTML = `
     <a href="../Views/product-details.html?id=${product.id}">
       <img src="${product.imageUrl}" alt="${product.name} Image" style="max-width: 100%; height: auto;">
+      <h3>${product.name}</h3>
       <p class="blue">Offer: ${product.category}</p>
       <p class="price">Price: $${product.price}</p>
       <p>Original Price: <span class="th">₹${product.ogprice}</span></p>

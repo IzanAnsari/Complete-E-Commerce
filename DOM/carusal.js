@@ -3,12 +3,12 @@
 // carousel function start ==============
 
 let imgArray = [
-  "https://images-eu.ssl-images-amazon.com/images/G/31/img24/Fashion/GW/MFD/1._CB583514833_.jpg",
-  "https://images-eu.ssl-images-amazon.com/images/G/31/img21/OHL/GW/BAU/CUSTOM/Desktop_Hero_3000x1200_2copy2x._CB584609033_.jpg",
+  "https://images-eu.ssl-images-amazon.com/images/G/31/OHL_HSS/3000x1200-heroH1._CB582036967_.jpg",
+  "https://images-eu.ssl-images-amazon.com/images/G/31/img2020/img21/apparelGW/jan24atf/unrec/citi/pc-1_2x._CB584618827_.jpg",
+  "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Consumables/X-GL/Feb5/PC_Hero_1_3000._CB582457311_.jpg",
+  "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Beauty/GW/Jan/unrecatf/citi/Skincare-PCgf._CB584595621_.jpg",
+  "https://images-eu.ssl-images-amazon.com/images/G/31/OHL_HSS/3000x1200-herolowcat._CB582034221_.jpg",
     "https://images-eu.ssl-images-amazon.com/images/G/31/CookwareDining/Aman/Jan/5300-Kitchen---Hero-stripe-change--BAU-Adapt-3000-X-1200._CB583761349_.jpg",
-    "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Beauty/GW/Jan/unrecatf/icici/PC-3Less._CB583013789_.jpg",
-    "https://images-eu.ssl-images-amazon.com/images/G/31/img21/shoes/2024/MFD/Jan/Unrec/Sports/3000._CB583024006_.jpg",
-    "https://images-eu.ssl-images-amazon.com/images/G/31/img2020/img21/apparelGW/jan24atf/unrec/citi/pc-1_2x._CB584618827_.jpg",
     "https://images-eu.ssl-images-amazon.com/images/G/31/img23/HI/June/HMD/HMD_Jan_Unrec__3000X1200-UN-REC._CB583023498_.jpg",
   ];
   
